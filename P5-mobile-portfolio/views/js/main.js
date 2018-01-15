@@ -549,7 +549,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  var rows = windows.screen.height / s;
+  var rows = window.screen.height / s;
   var numPizzas = rows * cols;
   for (var i = 0; i < numPizzas; i++) {
     var elem = document.createElement('img');
