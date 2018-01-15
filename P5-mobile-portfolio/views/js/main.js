@@ -446,7 +446,7 @@ var resizePizzas = function(size) {
   }
 
   // Some modifications here
-  var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+  var randomPizzas = document.getElementsByClassName('randomPizzaContainer');
   var pizzaContainersLength = randomPizzas.length;
   // Pulled the determineDX call out of the loop, called just once now
   var dx = determineDx(randomPizzas[0], size);
@@ -473,8 +473,9 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+// # Tweak, moved the below line out of the for loop
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -522,13 +523,13 @@ function updatePositions() {
   var phase = [];
   // Capture the current ScrollY value and hold onto it for these calcuations
   var lastScrollYVal = lastScrollY / 1250;
-  for (var i = 0; i < items.length; i++) {
+  for (var i = 0; i < 5; i++) {
 	// Calculate and store
-    phase.push(Math.sin(lastScrollYVal + (i % 5)));
+    phase.push(Math.sin(lastScrollYVal + i));
   }
   for (var j = 0; j < items.length; j++) {
 	// Now we can use all the calculated values to speed things up
-    items[j].style.left = items[j].basicLeft + 100 * phase[j] + 'px';
+    items[j].style.left = items[j].basicLeft + 100 * phase[j % 5] + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -548,7 +549,9 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  var rows = windows.screen.height / s;
+  var numPizzas = rows * cols;
+  for (var i = 0; i < numPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
