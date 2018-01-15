@@ -521,14 +521,14 @@ function updatePositions() {
   // Going to calculate the various values and store them for use later
   var phase = [];
   // Capture the current ScrollY value and hold onto it for these calcuations
-  lastScrollYVal = lastScrollY / 1250;
+  var lastScrollYVal = lastScrollY / 1250;
   for (var i = 0; i < items.length; i++) {
 	// Calculate and store
     phase.push(Math.sin(lastScrollYVal + (i % 5)));
   }
-  for (var i = 0; i < items.length; i++) {
+  for (var j = 0; j < items.length; j++) {
 	// Now we can use all the calculated values to speed things up
-    items[i].style.left = items[i].basicLeft + 100 * phase[i] + 'px';
+    items[j].style.left = items[j].basicLeft + 100 * phase[j] + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
