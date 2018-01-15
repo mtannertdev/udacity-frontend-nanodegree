@@ -1,0 +1,36 @@
+/* add your CSS here */
+  #card {
+	  border: 1px solid lightgrey;
+	  width: 300px;
+	  padding-left: 15px;
+	  padding-right: 15px;
+	  padding-bottom: 15px;
+	  box-shadow: 6px 6px 2px lightgrey;
+	  background-color: floralwhite;
+  }
+  
+  img {
+	  /*border: 1px solid lightgrey;*/
+	  padding-bottom: 15px;
+
+  }
+  
+  #info
+  {
+	  border: 1px solid lightgrey;
+	  padding-left: 15px;
+	  padding-right: 15px;
+  }
+  
+  .fact {
+	  font-style: italic;
+  }
+  
+  .detail {
+	  font-weight: bold;
+  }
+  
+  ul {
+	  list-style: none;
+	  padding-left:0;
+  }

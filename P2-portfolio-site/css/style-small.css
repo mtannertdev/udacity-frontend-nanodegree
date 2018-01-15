@@ -1,0 +1,56 @@
+/* For viewport widths <= 500px */
+
+h1 {
+	font-size: 1.85em;
+}
+
+
+h3 {
+	margin-top: 12px;
+	font-size: 1.8em;
+	margin-left: 0px;
+	margin-bottom: 10px;
+}
+
+
+h4 {
+	font-size: 0.755em;
+}
+
+
+.logo {
+	height: 48px;
+	margin-top: 11px;
+}
+
+
+.featured-container {
+	flex-direction: column;
+	align-items: center;
+	margin: 0;
+}
+
+
+.featured-title {
+	text-align: center
+}
+
+
+.figure-title {
+	font-size: 1.6em;
+}
+
+
+.figure-link {
+	font-size: 1em;
+}
+
+
+figure {
+	max-width: 300px;
+}
+
+
+figcaption {
+	margin-bottom: 20px;
+}

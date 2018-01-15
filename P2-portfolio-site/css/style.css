@@ -1,0 +1,85 @@
+/* Common CSS for all viewports */
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #2D3C49;
+	font-weight: 300;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+
+h1 {
+	;
+	text-transform: uppercase;
+	line-height: 60%
+}
+
+
+h3 {
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+
+
+h4 {
+	text-transform: uppercase;
+	line-height: 0%;
+}
+
+
+hr {
+	color: #7D97AD;
+	background-color: #7D97AD;
+	border: none;
+	height: 2px;
+}
+
+
+figure {
+	margin: 0px;
+}
+
+
+figcaption {
+	text-align: center;
+}
+
+
+.container {
+	max-width: 1000px;
+	margin: auto;
+}
+
+
+.flex-container {
+	width: 100%;
+	display: flex;
+}
+
+
+.header-text {
+	text-align: right;
+	width: 100%;
+}
+
+
+.featured-work-img {
+	width: 100%;
+}
+
+
+.main-image {
+	width: 100%;
+}
+
+
+.text-muted {
+	color: #7D97AD;
+}
+
+
+.text-thin {
+	font-weight: 100;
+}
+

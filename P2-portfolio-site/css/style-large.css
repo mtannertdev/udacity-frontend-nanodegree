@@ -1,0 +1,44 @@
+/* For viewport widths of 900+ */
+
+h1 {
+	font-size: 3.16em;
+}
+
+
+h3 {
+	margin-top: 19px;
+	font-size: 1.89em;
+}
+
+
+h4 {
+	font-size: 1.26em;
+}
+
+
+.logo {
+	height: 81px;
+	margin-top: 20px;
+}
+
+
+.figure-title {
+	font-size: 1.88em;
+}
+
+
+.figure-link {
+	font-size: 1.1em;
+}
+
+
+.featured-work-col {
+	margin-right: 20px;
+	max-width: 335px;
+	width: calc((100% - 20px) / 3);
+}
+
+
+.featured-work-col-last {
+	margin-right: 0px;
+}
