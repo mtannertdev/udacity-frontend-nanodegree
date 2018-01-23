@@ -1,6 +1,25 @@
 html, body {
 	height: 100%;
-	width: 100%;
 	margin: 0;
 	padding: 0;
 }
+
+
+#header {
+	text-align: center;
+	background: darkslategray;
+	line-height: 60px;
+	color: white;
+	height: 60px;
+}
+
+#locations {
+}
+
+#map {
+	width: 100%;
+	max-width: 1000px;
+	height: 600px;
+}
+
+
