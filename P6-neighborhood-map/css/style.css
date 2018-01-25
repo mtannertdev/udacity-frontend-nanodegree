@@ -1,11 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
 html, body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
 }
 
+#main-content {
+	max-width: 1200px;
+	margin: auto;
+}
 
 #header {
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 1.3em;
 	text-align: center;
 	background: darkslategray;
 	line-height: 60px;
@@ -14,12 +22,13 @@ html, body {
 }
 
 #locations {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
 }
 
 #map {
 	width: 100%;
-	max-width: 1000px;
 	height: 600px;
+	margin: 0px;
 }
-
-

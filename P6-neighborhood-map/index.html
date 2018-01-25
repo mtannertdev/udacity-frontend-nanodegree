@@ -9,23 +9,21 @@
 	<link rel="stylesheet" href="css/style.css" />
 <head>
 <body>
-	<div id="header">Popular Places to Eat in Cincinnati</div>
-	<div id="main-content">
-		<section class="locations-container remove_padding col-sm-3">
-			<div id="locations">
+	<div id="main-content" class="container-fluid">
+		<div id="header">Popular Places to Eat in Cincinnati</div>
+		<!-- Add the bootstrap row class here to make the divs align -->
+		<div class="row">
+			<!-- Map -->
+			<div id="map" class="col-md-9"></div>
+			<!-- Locations -->
+			<div class="locations col-md-3">
 				<!-- <input data-bind="textInput: query, event: {input: updateLocations}" type="text" placeholder="Search"></input> -->
-				<ul class="list-group" data-bind="foreach: locationList">
-					<li class="list-group-item" data-bind="text: name"></li>
+				<ul class="list-group" data-bind="foreach: locationMarkerList">
+					<a class="list-group-item" data-bind="css: {active: selected}, text: name, visible: visible, click: $parent.selectLocation"></a>
 				</ul>
 			</div>
-		</section>
-
-		<!-- Map -->
-		<section class="map-container remove_padding col-sm-9">
-			<div id="map"></div>
-		</section>
+		</div>
 	</div>
-
 	<script type='text/javascript' src="js/jquery-3.3.1.min.js"></script>
 	<script type='text/javascript' src="js/knockout-3.4.2.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
