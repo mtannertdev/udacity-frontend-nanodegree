@@ -103,23 +103,24 @@ var viewModel = function() {
 	// calls every keydown from input box
 	self.updateLocations = function() {
 		self.locationMarkerInfoWindow.close();
+		self.selectedLocationMarker.setAnimation(google.maps.Animation.NONE);
 
 		var search = self.searchText();
 
 		//search the list
 		if (search.length === 0) {
 			for (var i=0; i < self.locationMarkerList.length; i++) {
-				self.locationMarkerList[i].setMap(map);
-				self.locationMarkerList[i].shown = true;
+				self.locationMarkerList[i].setVisible(true);
+				self.locationMarkerList[i].shown(true);
 			}
 		} else {
 			for (var i=0; i < self.locationMarkerList.length; i++) {
 				if (self.locationMarkerList[i].name.toLowerCase().indexOf(search.toLowerCase()) > -1) {
-					self.locationMarkerList[i].setMap(map);
-					self.locationMarkerList[i].shown = true;
+					self.locationMarkerList[i].setVisible(true);
+					self.locationMarkerList[i].shown(true);
 				} else {
-					self.locationMarkerList[i].setMap(null);
-					self.locationMarkerList[i].shown = false;
+					self.locationMarkerList[i].setVisible(false);
+					self.locationMarkerList[i].shown(false);
 				}
 			}
 		}
