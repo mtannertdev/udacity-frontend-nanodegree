@@ -13,20 +13,19 @@
 		<div id="header">Popular Places to Eat in Cincinnati</div>
 		<!-- Add the bootstrap row class here to make the divs align -->
 		<div class="row">
+			<!-- Map -->
+			<div id="map" class="col-md-8"></div>
+			<!-- Locations -->
 			<div class="col-md-4">
-				<!--<div id="error"><h4><span data-bind="text: errorDisplay"></span></h4></div> -->
+				<div id="error"><h5><span id="error-message" data-bind="text: errorMessage"></span><h5></div>
 				<div style="width:100%;" class="input-group">
 					<input id="search" type="text" class="form-control" placeholder="Search..." data-bind="value: searchText, valueUpdate: 'afterkeydown', event: {keyup: updateLocations}">
 				</div>
 				<br>
-				<!-- Locations -->
 				<ul class="list-group" data-bind="foreach: locationMarkerList">
 					<a class="list-group-item" data-bind="text: name, visible: shown, click: $parent.selectLocation"></a>
 				</ul>
 			</div>
-
-			<!-- Map -->
-			<div id="map" class="col-md-8"></div>
 		</div>
 	</div>
 	<script type='text/javascript' src="js/jquery-3.3.1.min.js"></script>
@@ -35,15 +34,3 @@
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSQYdiOpccm_AY32_OP1Od8DG2UEb3XSE&v=3&callback=initMap" onerror="googleMapsError()" async defer></script>
 </body>
 </html>
-<!--
-		<div class="row">
-			<div id="map" class="col-md-8"></div>
-			<input id="search" type="text" class="form-control" placeholder="filter by name..." data-bind="value: searchText, valueUpdate: 'afterkeydown', event: {keyup: updateLocations}">
-			<div class="locations col-md-4">
-				<ul class="list-group" data-bind="foreach: locationMarkerList">
-					<a class="list-group-item" data-bind="text: name, visible: shown, click: $parent.selectLocation"></a>
-				</ul>
-			</div>
-		</div>
-	</div>
--->

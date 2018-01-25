@@ -25,6 +25,11 @@ html, body {
 	margin: 0px;
 }
 
+#error-message {
+	color: tomato;
+	font-style: italic;
+}
+
 #map {
 	width: 100%;
 	height: 600px;

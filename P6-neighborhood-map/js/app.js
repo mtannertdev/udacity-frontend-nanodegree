@@ -1,5 +1,5 @@
 /* ***** Global Variables ***** */
-var map;
+var map, googleErrorMsg;
 
 /* ***** Model ***** */
 
@@ -51,6 +51,8 @@ var model = [
 var viewModel = function() {
 	var self = this;
 
+	self.errorMessage = ko.observable();
+	
 	// Generate the locationMarker list from the model
 	self.locationMarkerList = [];
 	model.forEach(function(location){
@@ -127,6 +129,7 @@ var viewModel = function() {
 	};
 	
 	
+	
 	self.addYelpData = function(yelp_location) {
 		/* Referenced this for example of a CORS workaround since Yelp does not support jsonp */
 		/* https://forum.freecodecamp.org/t/authorization-http-header-for-yelp-fusion-api-access-token/140974/4 */
@@ -137,14 +140,17 @@ var viewModel = function() {
 
 		fetch("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/"+yelp_location, {
 			headers: myHeaders 
-		}).then((res) => {
-			return res.json();
+		}).then((response) => {
+			if (!response.ok) { throw response }
+			return response.json();
 		}).then((json) => {
 			for (var i=0; i < self.locationMarkerList.length; i++) {
 				if (self.locationMarkerList[i].yelp_location == yelp_location) {
 					self.locationMarkerList[i].yelp_data = json;
 				}
 			}
+		}).catch(err => {
+			self.errorMessage("There was an error reaching Yelp");
 		});
 	};
 
@@ -167,7 +173,8 @@ function initMap() {
 }
 
 // This function runs if there is any issue with the Google Maps API loading
-function googleError() {
-	alert("Failed to load Google Maps API");
+function googleMapsError() {
+	$("#error-message").text("There was an error contacting Google Maps");
+	console.log("asdasdasd");
 }
 
