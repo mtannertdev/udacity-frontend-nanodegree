@@ -67,7 +67,6 @@ var viewModel = function() {
 		}));
 	});
 
-
 	// Add listeners to each locationMarker
 	// This is for clicking on markers on the map
 	for (var i=0; i < self.locationMarkerList.length; i++) {
@@ -89,7 +88,7 @@ var viewModel = function() {
 
 		// Load yelp data, or show message that Yelp data is loading
 		var infoWindowContent = "<h5>" + locationMarker.name + "</h5>";
-		if (locationMarker.yelp_data != null) {
+		if (locationMarker.yelp_data !== null) {
 			infoWindowContent += "<div>Yelp rated "+ locationMarker.yelp_data.rating + "/5 with " + locationMarker.yelp_data.review_count + " reviews</div>";
         } else {
 			infoWindowContent += "<div>Yelp data not available yet</div>";
@@ -117,13 +116,13 @@ var viewModel = function() {
 				self.locationMarkerList[i].shown(true);
 			}
 		} else {
-			for (var i=0; i < self.locationMarkerList.length; i++) {
-				if (self.locationMarkerList[i].name.toLowerCase().indexOf(search.toLowerCase()) > -1) {
-					self.locationMarkerList[i].setVisible(true);
-					self.locationMarkerList[i].shown(true);
+			for (var j=0; j < self.locationMarkerList.length; j++) {
+				if (self.locationMarkerList[j].name.toLowerCase().indexOf(search.toLowerCase()) > -1) {
+					self.locationMarkerList[j].setVisible(true);
+					self.locationMarkerList[j].shown(true);
 				} else {
-					self.locationMarkerList[i].setVisible(false);
-					self.locationMarkerList[i].shown(false);
+					self.locationMarkerList[j].setVisible(false);
+					self.locationMarkerList[j].shown(false);
 				}
 			}
 		}
@@ -142,7 +141,7 @@ var viewModel = function() {
 		fetch("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/"+yelp_location, {
 			headers: myHeaders 
 		}).then((response) => {
-			if (!response.ok) { throw response }
+			if (!response.ok) { throw response; }
 			return response.json();
 		}).then((json) => {
 			for (var i=0; i < self.locationMarkerList.length; i++) {
@@ -156,10 +155,10 @@ var viewModel = function() {
 	};
 
 	// Add Yelp data to each locationMarker
-	for (var i=0; i < self.locationMarkerList.length; i++) {
-		self.addYelpData(self.locationMarkerList[i].yelp_location)
+	for (var k=0; k < self.locationMarkerList.length; k++) {
+		self.addYelpData(self.locationMarkerList[k].yelp_location);
 	}
-}
+};
 
 // this functon runs when the Google Maps API loads
 function initMap() {
