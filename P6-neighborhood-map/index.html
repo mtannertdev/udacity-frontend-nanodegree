@@ -17,11 +17,12 @@
 			<div id="map" class="col-md-8"></div>
 			<!-- Locations -->
 			<div class="col-md-4">
+				<!-- Error Reporting -->
 				<div id="error"><h5><span id="error-message" data-bind="text: errorMessage"></span><h5></div>
-				<div style="width:100%;" class="input-group">
-					<input id="search" type="text" class="form-control" placeholder="Search..." data-bind="value: searchText, valueUpdate: 'afterkeydown', event: {keyup: updateLocations}">
-				</div>
+				<!-- Searching -->
+				<input id="search" type="text" placeholder="Search..." data-bind="value: searchText, valueUpdate: 'afterkeydown', event: {keyup: updateLocations}">
 				<br>
+				<!-- List of Locations -->
 				<ul class="list-group" data-bind="foreach: locationMarkerList">
 					<a class="list-group-item" data-bind="text: name, visible: shown, click: $parent.selectLocation"></a>
 				</ul>

@@ -1,5 +1,5 @@
 /* ***** Global Variables ***** */
-var map, googleErrorMsg;
+var map;
 
 /* ***** Model ***** */
 
@@ -60,7 +60,6 @@ var viewModel = function() {
 			position: {lat: location.lat, lng: location.lng},
 			map: map,
 			name: location.name,
-			//yelp_data: getYelpInfo(location.yelp_location),
 			yelp_location: location.yelp_location,
 			shown: ko.observable(location.shown),
 			selected: ko.observable(location.selected),
@@ -70,6 +69,7 @@ var viewModel = function() {
 
 
 	// Add listeners to each locationMarker
+	// This is for clicking on markers on the map
 	for (var i=0; i < self.locationMarkerList.length; i++) {
 		self.locationMarkerList[i].addListener('click', function() {
 			self.selectLocation(this);
@@ -87,6 +87,7 @@ var viewModel = function() {
 		self.selectedLocationMarker.setAnimation(google.maps.Animation.NONE);
 		locationMarker.setAnimation(google.maps.Animation.BOUNCE);
 
+		// Load yelp data, or show message that Yelp data is loading
 		var infoWindowContent = "<h5>" + locationMarker.name + "</h5>";
 		if (locationMarker.yelp_data != null) {
 			infoWindowContent += "<div>Yelp rated "+ locationMarker.yelp_data.rating + "/5 with " + locationMarker.yelp_data.review_count + " reviews</div>";
