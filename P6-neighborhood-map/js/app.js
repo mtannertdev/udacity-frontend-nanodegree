@@ -67,14 +67,6 @@ var viewModel = function() {
 		}));
 	});
 
-	// Add listeners to each locationMarker
-	// This is for clicking on markers on the map
-	for (var i=0; i < self.locationMarkerList.length; i++) {
-		self.locationMarkerList[i].addListener('click', function() {
-			self.selectLocation(this);
-		});
-	}
-
 	self.locationMarkerInfoWindow = new google.maps.InfoWindow();
 	self.selectedLocationMarker = self.locationMarkerList[0];
 
@@ -99,6 +91,14 @@ var viewModel = function() {
 		self.selectedLocationMarker = locationMarker;
 	};
 	
+	// Add listeners to each locationMarker
+	// This is for clicking on markers on the map
+	self.locationMarkerList.forEach(function(locationMarker) {
+		locationMarker.addListener('click', function() {
+			self.selectLocation(this);
+		});
+	});
+
 	// create a search observable for search text
 	self.searchText = ko.observable();
 
