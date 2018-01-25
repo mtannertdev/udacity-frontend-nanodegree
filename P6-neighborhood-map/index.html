@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Loveland Neighborhood Map</title>
+	<title>Cincinnati Food Map</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/style.css" />
 <head>
@@ -14,12 +14,12 @@
 		<!-- Add the bootstrap row class here to make the divs align -->
 		<div class="row">
 			<!-- Map -->
-			<div id="map" class="col-md-9"></div>
+			<div id="map" class="col-md-8"></div>
 			<!-- Locations -->
-			<div class="locations col-md-3">
-				<!-- <input data-bind="textInput: query, event: {input: updateLocations}" type="text" placeholder="Search"></input> -->
+			<div class="locations col-md-4">
+				<input id="search" type="text" placeholder="Search..." data-bind="value: searchText, valueUpdate: 'afterkeydown', event: {keyup: updateLocations}">
 				<ul class="list-group" data-bind="foreach: locationMarkerList">
-					<a class="list-group-item" data-bind="css: {active: selected}, text: name, visible: visible, click: $parent.selectLocation"></a>
+					<a class="list-group-item" data-bind="text: name, visible: shown, click: $parent.selectLocation"></a>
 				</ul>
 			</div>
 		</div>
