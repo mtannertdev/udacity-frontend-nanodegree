@@ -10,5 +10,5 @@ Project Challenge: Use the Jasmine testing suite to test functionality of the pr
 - There is at least a single entry within the first feed.
 - The feed changes content after selecting a new feed.
 
-#### How to used
+#### How to use
 * Download and extract the zip file, double-click on the index.html
