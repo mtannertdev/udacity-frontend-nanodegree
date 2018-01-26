@@ -26,8 +26,7 @@ $(function() {
 		// a URL defined and that the URL is not empty.
 		it('has urls that are defined and not empty', function() {
 			allFeeds.forEach(function(feed) {
-				expect(feed.url).toBeDefined();
-				expect(feed.url.length !== 0).toBe(true);
+				expect(feed.url).toBeTruthy();
 			});
 		});
 
@@ -35,8 +34,7 @@ $(function() {
 		// a name defined and that the name is not empty.
 		it('has names and are not null', function() {
 			allFeeds.forEach(function(feed) {
-				expect(feed.name).toBeDefined();
-				expect(feed.name.length !== 0).toBe(true);
+				expect(feed.name).toBeTruthy();
 			});
 		});
 
@@ -75,7 +73,7 @@ $(function() {
         // Ensure when the loadFeed function is called and completes its work,
 		// there is at least a single .entry element within the .feed container.
 		it('has at least a single entry', function(done) {
-			expect($('.feed .entry').length !== 0).toBe(true);
+			expect($('.feed .entry').length).not.toBe(0);
 			done();
 		});
 
@@ -90,7 +88,7 @@ $(function() {
 			loadFeed(0, function() {
 				oldfeed = $('.feed').html();
 				loadFeed(1, function() {
-					$newfeed = $('.feed').html();
+					newfeed = $('.feed').html();
 					done();
 				});
 			});
