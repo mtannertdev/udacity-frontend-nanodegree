@@ -28,7 +28,7 @@ $(function() {
 			allFeeds.forEach(function(feed) {
 				expect(feed.url).toBeDefined();
 				expect(feed.url.length !== 0).toBe(true);
-			})
+			});
 		});
 
         // Loop through each feed in the allFeeds object and ensure it has
@@ -37,7 +37,7 @@ $(function() {
 			allFeeds.forEach(function(feed) {
 				expect(feed.name).toBeDefined();
 				expect(feed.name.length !== 0).toBe(true);
-			})
+			});
 		});
 
 	});
